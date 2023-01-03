@@ -17,3 +17,4 @@ const retypePasswordHint = '*********';
 const termAndCondition = ' Terms and Conditions';
 const privacyPolicy = ' & Privacy Policy';
 const haveAnAccount = 'Already have an account? ';
+const home = 'Home', category = 'Category', cart = 'Cart', account = 'Account';

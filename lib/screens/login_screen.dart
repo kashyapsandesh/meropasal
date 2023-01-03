@@ -1,4 +1,5 @@
 import '../consts/consts.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -32,10 +33,11 @@ class LoginScreen extends StatelessWidget {
                       child: forgetPassword.text.make(),
                     ),
                   ),
-                  customButton(title: login, onPress: () {})
-                      .box
-                      .width(context.screenWidth - 50)
-                      .make(),
+                  customButton(
+                      title: login,
+                      onPress: () {
+                        Get.to(() => HomeScreen());
+                      }).box.width(context.screenWidth - 50).make(),
                   5.heightBox,
                   createNewAccount.text.color(darkFontGrey).make(),
                   5.heightBox,

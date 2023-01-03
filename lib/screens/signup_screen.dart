@@ -1,7 +1,14 @@
 import '../consts/consts.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  bool? isCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +44,14 @@ class SignupScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Checkbox(value: false, onChanged: (newValue) {}),
+                      Checkbox(
+                          activeColor: redColor,
+                          value: this.isCheck,
+                          onChanged: (newValue) {
+                            setState(() {
+                              isCheck = newValue;
+                            });
+                          }),
                       5.widthBox,
                       Expanded(
                         child: RichText(
@@ -70,7 +84,10 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  customButton(title: signup, onPress: () {})
+                  customButton(
+                          title: signup,
+                          onPress: () {},
+                          color: isCheck == true ? redColor : fontGrey)
                       .box
                       .width(context.screenWidth - 50)
                       .make(),
