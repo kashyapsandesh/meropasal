@@ -37,18 +37,10 @@ class HomeScreen extends StatelessWidget {
           label: account),
     ];
     var navBody = [
-      Container(
-        color: Colors.blue,
-      ),
-      Container(
-        color: Colors.amber,
-      ),
-      Container(
-        color: Colors.purple,
-      ),
-      Container(
-        color: Colors.cyan,
-      ),
+      MainHomeScreen(),
+      Category(),
+      Cart(),
+      Profile(),
     ];
     return Scaffold(
       body: Column(
