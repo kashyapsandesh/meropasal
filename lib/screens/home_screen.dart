@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../consts/consts.dart';
 
-import '../controller/home_controller.dart';
+import 'controller/home_controller.dart';
 import '../widgets/bgcolor.dart';
 
 class HomeScreen extends StatelessWidget {
