@@ -24,6 +24,27 @@ class MainHomeScreen extends StatelessWidget {
                 hintText: "Search",
               ),
             ),
+          ),
+          //swiper for caresoule
+          VxSwiper.builder(
+            enlargeCenterPage: true,
+            aspectRatio: 16 / 9,
+            autoPlay: true,
+            height: 150,
+            itemCount: slider.length,
+            itemBuilder: ((context, index) {
+              return Container(
+                child: Image.asset(
+                  slider[index],
+                  fit: BoxFit.fill,
+                )
+                    .box
+                    .rounded
+                    .margin(EdgeInsets.symmetric(horizontal: 8))
+                    .clip(Clip.antiAlias)
+                    .make(),
+              );
+            }),
           )
         ],
       )),
