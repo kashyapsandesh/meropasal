@@ -17,3 +17,4 @@ export '../screens/main_home_screen.dart';
 export '../screens/cart.dart';
 export '../screens/category.dart';
 export '../screens/profile.dart';
+export "../screens/components/features_btn.dart";

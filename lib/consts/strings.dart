@@ -17,6 +17,14 @@ const nameHint = "Sandesh Ghimire";
 const topCategories = "Top Categories";
 const brand = "Brand";
 const topSeller = "Top Seller";
+const womenDress = "Women Dresses";
+const girlWatch = "Girls Watches";
+const mobilePhone = "Mobile Phone";
+const tshirt = "T-Shirt";
+const glasses = "Boys Glasses";
+const girldress = "Girl Dresses";
+
+const featuredCategories = "Featured Categories";
 const retypePassword = 'Retype Password';
 const retypePasswordHint = '*********';
 const termAndCondition = ' Terms and Conditions';
