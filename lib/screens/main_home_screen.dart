@@ -137,6 +137,91 @@ class MainHomeScreen extends StatelessWidget {
                     ),
                   ),
                   // featured products
+                  20.heightBox,
+                  Container(
+                    padding: EdgeInsets.all(12),
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: redColor),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        featuredProducts.text
+                            .fontFamily(semibold)
+                            .white
+                            .size(18)
+                            .make(),
+                        10.heightBox,
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                              children: List.generate(
+                                  featuredProduct.length,
+                                  (index) => Column(
+                                        children: [
+                                          Image.asset(featuredProduct[index],
+                                              width: 150, fit: BoxFit.cover)
+                                        ],
+                                      )
+                                          .box
+                                          .white
+                                          .rounded
+                                          .margin(EdgeInsets.all(5))
+                                          .padding(EdgeInsets.all(8))
+                                          .make())),
+                        )
+                      ],
+                    ),
+                  ),
+                  // Third Swiper
+                  10.heightBox,
+                  VxSwiper.builder(
+                    enlargeCenterPage: true,
+                    aspectRatio: 16 / 9,
+                    autoPlay: true,
+                    height: 150,
+                    itemCount: secondSlider.length,
+                    itemBuilder: ((context, index) {
+                      return Container(
+                        child: Image.asset(
+                          secondSlider[index],
+                          fit: BoxFit.fill,
+                        )
+                            .box
+                            .rounded
+                            .margin(EdgeInsets.symmetric(horizontal: 8))
+                            .clip(Clip.antiAlias)
+                            .make(),
+                      );
+                    }),
+                  ),
+
+                  // All Products
+                  20.heightBox,
+                  GridView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 6,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8,
+                          mainAxisExtent: 300,
+                          crossAxisSpacing: 8),
+                      itemBuilder: ((context, index) {
+                        return Column(
+                          children: [
+                            Image.asset(imgP5, width: 200, fit: BoxFit.fill),
+                            5.heightBox,
+                            "Laptop 4GB/6GB".text.fontFamily(semibold).make(),
+                            5.heightBox,
+                            "\$56000"
+                                .text
+                                .size(18)
+                                .fontFamily(bold)
+                                .color(redColor)
+                                .make(),
+                          ],
+                        ).box.rounded.white.make();
+                      }))
                 ],
               ),
             ),

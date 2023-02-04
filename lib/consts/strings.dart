@@ -23,7 +23,7 @@ const mobilePhone = "Mobile Phone";
 const tshirt = "T-Shirt";
 const glasses = "Boys Glasses";
 const girldress = "Girl Dresses";
-
+const featuredProducts = "Featured Products";
 const featuredCategories = "Featured Categories";
 const retypePassword = 'Retype Password';
 const retypePasswordHint = '*********';

@@ -8,3 +8,4 @@ const featuredImages2 = [imgS4, imgS5, imgS6];
 
 const featuredTitle1 = [womenDress, girldress, girlWatch];
 const featuredTitle2 = [tshirt, glasses, mobilePhone];
+const featuredProduct = [imgP1, imgP2, imgP3, imgP4, imgP5, imgP6, imgP7];
