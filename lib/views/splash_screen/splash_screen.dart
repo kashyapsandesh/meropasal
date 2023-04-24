@@ -1,5 +1,5 @@
-import '../consts/consts.dart';
-import '../widgets/applogo.dart';
+import '../../consts/consts.dart';
+import '../widget_common/applogo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

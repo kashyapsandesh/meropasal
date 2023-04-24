@@ -1,5 +1,5 @@
 import '../consts/consts.dart';
-import '../widgets/home_button.dart';
+import 'widget_common/home_button.dart';
 
 class MainHomeScreen extends StatelessWidget {
   const MainHomeScreen({super.key});

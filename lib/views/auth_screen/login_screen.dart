@@ -1,5 +1,5 @@
-import '../consts/consts.dart';
-import 'home_screen.dart';
+import '../../consts/consts.dart';
+import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

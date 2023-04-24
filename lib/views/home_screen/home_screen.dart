@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../consts/consts.dart';
+import '../../consts/consts.dart';
 
-import 'controller/home_controller.dart';
-import '../widgets/bgcolor.dart';
+import '../../controller/home_controller.dart';
+import '../widget_common/bgcolor.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

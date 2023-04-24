@@ -1,4 +1,4 @@
-import "../../consts/consts.dart";
+import '../consts/consts.dart';
 
 Widget featureBtn({String?title,icon}) {
   return Row(

@@ -31,3 +31,15 @@ const termAndCondition = ' Terms and Conditions';
 const privacyPolicy = ' & Privacy Policy';
 const haveAnAccount = 'Already have an account? ';
 const home = 'Home', category = 'Category', cart = 'Cart', account = 'Account';
+
+// Category Strings
+// womenClothing, menClothingFashion, compAcess, automobile, kidtoys, sports, jewelery, cellphone, furniture
+const womenClothing = "Women Clothing",
+    menClothingFashion = "Men Clothing & Fashion",
+    compAccess = "Computer & Accessories",
+    automobile = "Automobile",
+    kidtoys = "Kids & Toys",
+    sports = "Sports",
+    jewelery = "Jewelery",
+    cellphone = "CellPhone & Tab",
+    furniture = "Furniture";

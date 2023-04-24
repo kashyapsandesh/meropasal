@@ -1,4 +1,4 @@
-import '../consts/consts.dart';
+import '../../consts/consts.dart';
 
 Widget homeButtons(
     {String? title, double? width, double? height, icon, onPress}) {

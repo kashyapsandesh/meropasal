@@ -1,4 +1,4 @@
-import '../consts/consts.dart';
+import '../../consts/consts.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});

@@ -1,4 +1,4 @@
-import '../consts/consts.dart';
+import '../../consts/consts.dart';
 
 Widget customButton({String? title, onPress, color, textcolor}) {
   return ElevatedButton(
