@@ -34,3 +34,4 @@ const categoryImages = [
   imgFc9,
   imgFc10,
 ];
+const itemDetailButtonsList = [video, reviews, privacyPolicy, supportpolicy];

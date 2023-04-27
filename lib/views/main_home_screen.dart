@@ -198,30 +198,31 @@ class MainHomeScreen extends StatelessWidget {
                   // All Products
                   20.heightBox,
                   GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 6,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 8,
-                          mainAxisExtent: 300,
-                          crossAxisSpacing: 8),
-                      itemBuilder: ((context, index) {
-                        return Column(
-                          children: [
-                            Image.asset(imgP5, width: 200, fit: BoxFit.fill),
-                            5.heightBox,
-                            "Laptop 4GB/6GB".text.fontFamily(semibold).make(),
-                            5.heightBox,
-                            "\$56000"
-                                .text
-                                .size(18)
-                                .fontFamily(bold)
-                                .color(redColor)
-                                .make(),
-                          ],
-                        ).box.rounded.white.make();
-                      }))
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 8,
+                        mainAxisExtent: 300,
+                        crossAxisSpacing: 8),
+                    itemBuilder: ((context, index) {
+                      return Column(
+                        children: [
+                          Image.asset(imgP5, width: 200, fit: BoxFit.fill),
+                          5.heightBox,
+                          "Laptop 4GB/6GB".text.fontFamily(semibold).make(),
+                          5.heightBox,
+                          "\$56000"
+                              .text
+                              .size(18)
+                              .fontFamily(bold)
+                              .color(redColor)
+                              .make(),
+                        ],
+                      ).box.rounded.white.make();
+                    }),
+                  )
                 ],
               ),
             ),
