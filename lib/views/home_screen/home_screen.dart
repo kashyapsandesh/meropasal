@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
     var navBody = [
       MainHomeScreen(),
       Category(),
-      Cart(),
+      CartScreen(),
       Profile(),
     ];
     return Scaffold(

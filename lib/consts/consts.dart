@@ -14,7 +14,7 @@ export '../views/widget_common/custombutton.dart';
 export 'list.dart';
 export '../views/auth_screen/signup_screen.dart';
 export '../views/main_home_screen.dart';
-export '../views/cart.dart';
+export '../views/cart_screen/cart.dart';
 export '../views/category_screen/category.dart';
 export '../views/profile_screen/profile.dart';
 export '../components/features_btn.dart';
