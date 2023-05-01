@@ -1,6 +1,7 @@
 import '../../consts/consts.dart';
 
-Widget customTextField({String? title, String? hintText, controller}) {
+Widget customTextField(
+    {String? title, String? hintText, controller, bool? isPass}) {
   return Container(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -8,6 +9,7 @@ Widget customTextField({String? title, String? hintText, controller}) {
         title!.text.fontWeight(FontWeight.bold).color(redColor).size(20).make(),
         5.heightBox,
         TextFormField(
+          obscureText: isPass!,
           controller: controller,
           decoration: InputDecoration(
               hintText: hintText,

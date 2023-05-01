@@ -1,4 +1,5 @@
 import '../../consts/consts.dart';
+import '../../controller/auth_controller.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -9,6 +10,14 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool? isCheck = false;
+  var controller = Get.put(AuthController());
+  // text controllers
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+
+  var passwordController = TextEditingController();
+
+  var passwordRetypeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +39,26 @@ class _SignupScreenState extends State<SignupScreen> {
               5.heightBox,
               Column(
                 children: [
-                  customTextField(hintText: nameHint, title: name),
-                  customTextField(hintText: emailHint, title: email),
-                  customTextField(hintText: passwordHint, title: password),
                   customTextField(
-                      hintText: retypePasswordHint, title: retypePassword),
+                      hintText: nameHint,
+                      title: name,
+                      controller: nameController,
+                      isPass: false),
+                  customTextField(
+                      hintText: emailHint,
+                      title: email,
+                      controller: emailController,
+                      isPass: false),
+                  customTextField(
+                      hintText: passwordHint,
+                      title: password,
+                      controller: passwordController,
+                      isPass: true),
+                  customTextField(
+                      hintText: retypePasswordHint,
+                      title: retypePassword,
+                      controller: passwordRetypeController,
+                      isPass: true),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -86,7 +110,29 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   customButton(
                           title: signup,
-                          onPress: () {},
+                          onPress: () async {
+                            if (isCheck != false) {
+                              try {
+                                await controller
+                                    .signUpMethod(
+                                        context: context,
+                                        email: emailController.text,
+                                        password: passwordController.text)
+                                    .then((value) {
+                                  return controller.storeUserData(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                      name: nameController.text);
+                                }).then((value) {
+                                  VxToast.show(context, msg: loggedin);
+                                  Get.offAll(MainHomeScreen());
+                                });
+                              } catch (e) {
+                                auth.signOut();
+                                VxToast.show(context, msg: e.toString());
+                              }
+                            }
+                          },
                           color: isCheck == true ? redColor : fontGrey)
                       .box
                       .width(context.screenWidth - 50)
