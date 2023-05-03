@@ -1,6 +1,7 @@
 import '../../consts/consts.dart';
 import '../../controller/auth_controller.dart';
 import 'components/details_card.dart';
+import 'components/edit_profile_screen.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -17,7 +18,9 @@ class Profile extends StatelessWidget {
             child: Icon(
               Icons.edit,
               color: whiteColor,
-            ).onTap(() {}),
+            ).onTap(() {
+              Get.to(() => EditProfileScreen());
+            }),
           ),
           Row(
             children: [
