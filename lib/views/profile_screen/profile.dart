@@ -1,4 +1,5 @@
 import '../../consts/consts.dart';
+import '../../controller/auth_controller.dart';
 import 'components/details_card.dart';
 
 class Profile extends StatelessWidget {
@@ -9,7 +10,6 @@ class Profile extends StatelessWidget {
     return bgColor(Scaffold(
         body: SafeArea(
       child: Container(
-        
         child: Column(children: [
           // added profile button
           Align(
@@ -39,7 +39,10 @@ class Profile extends StatelessWidget {
               OutlinedButton(
                   style: OutlinedButton.styleFrom(
                       side: BorderSide(color: whiteColor)),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Get.put(AuthController()).signoutMethod(context);
+                    Get.offAll(() => const LoginScreen());
+                  },
                   child: logout.text.white.make())
             ],
           ),
