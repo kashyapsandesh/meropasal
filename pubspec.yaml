@@ -36,6 +36,7 @@ dependencies:
     sdk: flutter
   flutter_firebase_firestore: ^0.0.1
   get: ^4.6.5
+  image_picker: ^0.8.7+4
   velocity_x: null
 
 dev_dependencies:
