@@ -34,7 +34,8 @@ const termAndCondition = ' Terms and Conditions';
 const privacyPolicy = ' & Privacy Policy';
 const haveAnAccount = 'Already have an account? ';
 const home = 'Home', category = 'Category', cart = 'Cart', account = 'Account';
-
+const oldPass = "Old Password";
+const newPass = "New Password";
 // Category Strings
 // womenClothing, menClothingFashion, compAcess, automobile, kidtoys, sports, jewelery, cellphone, furniture
 const womenClothing = "Women Clothing",
