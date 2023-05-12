@@ -7,5 +7,5 @@ Widget featureBtn({String?title,icon}) {
       10.widthBox,
       title!.text.fontFamily(semibold).color(darkFontGrey).make()
     ],
-  ).box.width(200).margin(EdgeInsets.symmetric(horizontal: 5)).white.padding(EdgeInsets.all(4)).rounded.make();
+  ).box.width(200).margin(const EdgeInsets.symmetric(horizontal: 5)).white.padding(const EdgeInsets.all(4)).rounded.make();
 }

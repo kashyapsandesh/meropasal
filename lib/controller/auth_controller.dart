@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -38,6 +40,7 @@ class AuthController extends GetxController {
   storeUserData({name, password, email}) async {
     DocumentReference store =
         firestore.collection(usersCollection).doc(currentUser!.uid);
+    log(currentUser!.uid.toString());
     store.set({
       'name': name,
       'password': password,
@@ -53,7 +56,7 @@ class AuthController extends GetxController {
   // signout Method
   signoutMethod(context) async {
     try {
-      await auth.signOut();
+      await FirebaseAuth.instance.signOut();
     } catch (e) {
       VxToast.show(context, msg: e.toString());
     }
