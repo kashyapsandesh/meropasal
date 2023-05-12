@@ -34,16 +34,27 @@ class Profile extends StatelessWidget {
                     Icons.edit,
                     color: whiteColor,
                   ).onTap(() {
-                    Get.to(() => EditProfileScreen());
+                    controller.nameController.text = data['name'];
+                    controller.passController.text = data['password'];
+                    Get.to(() => EditProfileScreen(
+                          data: data,
+                        ));
                   }),
                 ),
                 Row(
                   children: [
-                    Image.asset(
-                      imgProfile2,
-                      width: 90,
-                      fit: BoxFit.cover,
-                    ).box.roundedFull.clip(Clip.antiAlias).make(),
+                    data['imageUrl'] == " "
+                        ? Image.asset(
+                            imgProfile2,
+                            width: 90,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make()
+                        : Image.network(
+                            data['imageUrl'],
+                            width: 90,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make(),
+                    10.widthBox,
                     10.widthBox,
                     Expanded(
                         child: Column(
@@ -75,17 +86,17 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     detailsCard(
-                        count: "00",
+                        count: "${data['cart_count']}",
                         title: "in your cart",
                         width: context.screenWidth / 3.2),
                     3.widthBox,
                     detailsCard(
-                        count: "30",
+                        count: "${data['wishlist_count']}",
                         title: "your whistlist",
                         width: context.screenWidth / 3.2),
                     3.widthBox,
                     detailsCard(
-                        count: "05",
+                        count: "${data['order_count']}",
                         title: "your order",
                         width: context.screenWidth / 3.2)
                   ],
