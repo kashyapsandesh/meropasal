@@ -102,8 +102,9 @@ class EditProfileScreen extends StatelessWidget {
                           VxToast.show(context, msg: "Updated");
                         } else {
                           VxToast.show(context, msg: "Wrong old password ");
-                          controller.isLoading(false);
                         }
+                          controller.isLoading(false);
+
                       },
                       textcolor: whiteColor,
                       title: "Save",
