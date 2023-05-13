@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import '../../consts/consts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../../controller/product_controller.dart';
 import 'item_details.dart';
 
 class CategoryDetails extends StatelessWidget {
@@ -9,6 +12,7 @@ class CategoryDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<ProductController>();
     return bgColor(Scaffold(
       appBar: AppBar(
         title: title?.text.white.fontFamily(bold).make(),
@@ -22,8 +26,8 @@ class CategoryDetails extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                   children: List.generate(
-                      6,
-                      (index) => "Baby Clothing"
+                      controller.subcat.length,
+                      (index) => "${controller.subcat[index]}"
                           .text
                           .size(12)
                           .color(fontGrey)

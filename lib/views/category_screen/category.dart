@@ -1,4 +1,5 @@
 import '../../consts/consts.dart';
+import '../../controller/product_controller.dart';
 import 'category_details.dart';
 
 class Category extends StatelessWidget {
@@ -6,6 +7,7 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProductController());
     return bgColor(
       Scaffold(
         appBar: AppBar(
@@ -44,6 +46,7 @@ class Category extends StatelessWidget {
                       .outerShadowSm
                       .make()
                       .onTap(() {
+                    controller.getSubCategories(categoriesList[index]);
                     Get.to(() => CategoryDetails(title: categoriesList[index]));
                   });
                 })),
