@@ -8,5 +8,5 @@ Widget detailsCard({width, String? count, String? title}) {
       5.heightBox,
       title!.text.color(darkFontGrey).make()
     ],
-  ).box.white.rounded.height(70).width(width).padding(EdgeInsets.all(6)).make();
+  ).box.white.rounded.height(70).width(width).padding(const EdgeInsets.all(6)).make();
 }

@@ -72,7 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       children: [
                         Checkbox(
                             activeColor: redColor,
-                            value: this.isCheck,
+                            value: isCheck,
                             onChanged: (newValue) {
                               setState(() {
                                 isCheck = newValue;
@@ -111,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ],
                     ),
                     controller.isLoading.value
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation(redColor),
                           )
                         : customButton(
@@ -132,7 +132,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                             name: nameController.text);
                                       }).then((value) {
                                         VxToast.show(context, msg: loggedin);
-                                        Get.offAll(HomeScreen());
+                                        Get.offAll(const HomeScreen());
                                       });
                                     } catch (e) {
                                       auth.signOut();

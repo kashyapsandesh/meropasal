@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
+import '../consts/consts.dart';
 import '../models/category_model.dart';
 
 class ProductController extends GetxController {
@@ -25,7 +25,6 @@ class ProductController extends GetxController {
     // log("sandesh${s.toString()}");
     for (var e in s[0].subcategory) {
       subcat.add(e);
-      print(e);
     }
   }
 
@@ -46,6 +45,26 @@ class ProductController extends GetxController {
   }
 
   calculateTotalPrice(price) {
-    totalPrice.value=price * quantity.value;
+    totalPrice.value = price * quantity.value;
+  }
+
+  addToCart({title, img, sellername, color, qty, tprice, context}) async {
+    await firestore.collection(cartCollection).doc().set({
+      'title': title,
+      'img': img,
+      'sellername': sellername,
+      'color': color,
+      'qty': qty,
+      'tprice': tprice,
+      'added_by': currentUser!.uid,
+    }).catchError((error) {
+      VxToast.show(context, msg: error.toString());
+    });
+  }
+
+  resetValues() {
+    totalPrice.value = 0;
+    quantity.value = 0;
+    colorIndex.value = 0;
   }
 }

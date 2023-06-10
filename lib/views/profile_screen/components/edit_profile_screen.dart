@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import '../../../consts/consts.dart';
@@ -48,7 +50,7 @@ class EditProfileScreen extends StatelessWidget {
               textcolor: whiteColor,
               title: "Change",
             ),
-            Divider(),
+            const Divider(),
             10.heightBox,
             customTextField(
               controller: controller.nameController,
@@ -71,7 +73,7 @@ class EditProfileScreen extends StatelessWidget {
             ),
             10.heightBox,
             controller.isLoading.value
-                ? CircularProgressIndicator(
+                ? const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation(redColor),
                   )
                 : SizedBox(
@@ -116,7 +118,7 @@ class EditProfileScreen extends StatelessWidget {
             .white
             .shadowSm
             .rounded
-            .padding(EdgeInsets.all(16))
+            .padding(const EdgeInsets.all(16))
             .margin(const EdgeInsets.only(top: 50, left: 12, right: 12))
             .make(),
       ),

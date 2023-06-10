@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../consts/consts.dart';
 import '../home_screen/home_screen.dart';
-import '../widget_common/applogo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,13 +12,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   changeScreen() {
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 10), () {
       // Get.to(() => LoginScreen());
       auth.authStateChanges().listen((User? user) {
         if (user == null && mounted) {
-          Get.to(() => LoginScreen());
+          Get.to(() => const LoginScreen());
         } else {
-          Get.to(() => HomeScreen());
+          Get.to(() => const HomeScreen());
         }
       });
     });
@@ -49,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
           appname.text.fontFamily(bold).size(22).white.make(),
           20.heightBox,
           appversion.text.size(15).white.make(),
-          Spacer(),
+          const Spacer(),
           credits.text.size(15).white.make(),
           30.heightBox
         ],

@@ -14,10 +14,10 @@ class Category extends StatelessWidget {
           title: category.text.fontFamily(bold).white.make(),
         ),
         body: Container(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: GridView.builder(
                 itemCount: 9,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,

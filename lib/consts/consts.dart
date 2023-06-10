@@ -1,3 +1,5 @@
+// ignore_for_file: duplicate_export
+
 export './colors.dart';
 export './colors.dart';
 export './images.dart';

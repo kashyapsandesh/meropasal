@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
+
 import '../../consts/consts.dart';
 
 Widget customButton({String? title, onPress, color, textcolor}) {

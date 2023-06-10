@@ -7,7 +7,7 @@ class MainHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       color: lightGrey,
       width: context.screenWidth,
       height: context.screenHeight,
@@ -18,7 +18,7 @@ class MainHomeScreen extends StatelessWidget {
             alignment: Alignment.center,
             height: 60,
             child: TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 suffixIcon: Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.white,
@@ -45,7 +45,7 @@ class MainHomeScreen extends StatelessWidget {
                         )
                             .box
                             .rounded
-                            .margin(EdgeInsets.symmetric(horizontal: 8))
+                            .margin(const EdgeInsets.symmetric(horizontal: 8))
                             .clip(Clip.antiAlias)
                             .make(),
                       );
@@ -79,7 +79,7 @@ class MainHomeScreen extends StatelessWidget {
                         )
                             .box
                             .rounded
-                            .margin(EdgeInsets.symmetric(horizontal: 8))
+                            .margin(const EdgeInsets.symmetric(horizontal: 8))
                             .clip(Clip.antiAlias)
                             .make(),
                       );
@@ -139,9 +139,9 @@ class MainHomeScreen extends StatelessWidget {
                   // featured products
                   20.heightBox,
                   Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     width: double.infinity,
-                    decoration: BoxDecoration(color: redColor),
+                    decoration: const BoxDecoration(color: redColor),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -165,8 +165,8 @@ class MainHomeScreen extends StatelessWidget {
                                           .box
                                           .white
                                           .rounded
-                                          .margin(EdgeInsets.all(5))
-                                          .padding(EdgeInsets.all(8))
+                                          .margin(const EdgeInsets.all(5))
+                                          .padding(const EdgeInsets.all(8))
                                           .make())),
                         )
                       ],
@@ -188,7 +188,7 @@ class MainHomeScreen extends StatelessWidget {
                         )
                             .box
                             .rounded
-                            .margin(EdgeInsets.symmetric(horizontal: 8))
+                            .margin(const EdgeInsets.symmetric(horizontal: 8))
                             .clip(Clip.antiAlias)
                             .make(),
                       );
@@ -198,10 +198,10 @@ class MainHomeScreen extends StatelessWidget {
                   // All Products
                   20.heightBox,
                   GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 6,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 8,
                         mainAxisExtent: 300,

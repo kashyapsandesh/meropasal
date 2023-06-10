@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     controller.isLoading.value
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation(redColor),
                           )
                         : customButton(
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                                   .then((value) {
                                 if (value != null) {
                                   VxToast.show(context, msg: loggedin);
-                                  Get.offAll(() => HomeScreen());
+                                  Get.offAll(() => const HomeScreen());
                                 } else {
                                   controller.isLoading(false);
                                 }
@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                     customButton(
                         title: signup,
                         onPress: () {
-                          Get.to(() => SignupScreen());
+                          Get.to(() => const SignupScreen());
                         }).box.width(context.screenWidth - 50).make(),
                     10.heightBox,
                     loginwith.text.make(),
@@ -91,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                     .box
                     .white
                     .rounded
-                    .padding(EdgeInsets.all(16))
+                    .padding(const EdgeInsets.all(16))
                     .width(context.screenWidth - 72)
                     .make(),
               ),

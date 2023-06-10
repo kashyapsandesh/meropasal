@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../../consts/consts.dart';
 
 import '../../controller/home_controller.dart';
@@ -78,4 +77,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+  
+  exitDialogMode() {}
 }

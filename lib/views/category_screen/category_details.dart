@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../consts/consts.dart';
+// ignore: unnecessary_import
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../consts/loading_indicator.dart';
@@ -36,11 +37,11 @@ class CategoryDetails extends StatelessWidget {
           } else {
             var data = snapshot.data!.docs;
             return Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
                   SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                         children: List.generate(
@@ -55,7 +56,7 @@ class CategoryDetails extends StatelessWidget {
                                 .white
                                 .rounded
                                 .size(120, 60)
-                                .margin(EdgeInsets.symmetric(horizontal: 4))
+                                .margin(const EdgeInsets.symmetric(horizontal: 4))
                                 .make())),
                   ),
                   10.heightBox,
@@ -66,7 +67,7 @@ class CategoryDetails extends StatelessWidget {
                       child: GridView.builder(
                           shrinkWrap: true,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, mainAxisExtent: 250),
                           itemCount: data.length,
                           itemBuilder: ((context, index) {
@@ -94,7 +95,7 @@ class CategoryDetails extends StatelessWidget {
                                 .rounded
                                 .white
                                 .outerShadowSm
-                                .margin(EdgeInsets.symmetric(
+                                .margin(const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10))
                                 .make()
                                 .onTap(() {

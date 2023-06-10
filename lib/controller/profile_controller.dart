@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart' as p;
 
 import '../consts/consts.dart';
@@ -55,7 +56,6 @@ class ProfileController extends GetxController {
     await currentUser!.reauthenticateWithCredential(cred).then((value) {
       currentUser!.updatePassword(newPassword);
     }).catchError((error) {
-      print(error.toString());
     });
   }
 }
