@@ -38,8 +38,8 @@ const oldPass = "Old Password";
 const newPass = "New Password";
 // Category Strings
 // womenClothing, menClothingFashion, compAcess, automobile, kidtoys, sports, jewelery, cellphone, furniture
-const womenClothing = "Women Clothing",
-    menClothingFashion = "Men Clothing & Fashion",
+const womenClothing = "Women Dress",
+    menClothingFashion = "Man clothing and fashion",
     compAccess = "Computer & Accessories",
     automobile = "Automobile",
     kidtoys = "Kids & Toys",

@@ -32,7 +32,7 @@ class Category extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       10.heightBox,
-                      "${categoriesList[index]}"
+                      categoriesList[index]
                           .text
                           .color(darkFontGrey)
                           .align(TextAlign.center)

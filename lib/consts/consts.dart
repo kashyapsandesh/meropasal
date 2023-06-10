@@ -1,6 +1,7 @@
 export './colors.dart';
 export './colors.dart';
 export './images.dart';
+export '../views/widget_common/exit_dialog.dart';
 export './strings.dart';
 export './styles.dart';
 export './firebase_const.dart';
