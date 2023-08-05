@@ -3,7 +3,7 @@ import '../../controller/auth_controller.dart';
 import '../home_screen/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+  const SignupScreen({Key? key}):super(key: key);
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();

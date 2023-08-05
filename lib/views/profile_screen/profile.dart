@@ -10,7 +10,7 @@ import 'components/details_card.dart';
 import 'components/edit_profile_screen.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  const Profile({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import '../consts/consts.dart';
 import 'widget_common/home_button.dart';
 
 class MainHomeScreen extends StatelessWidget {
-  const MainHomeScreen({super.key});
+  const MainHomeScreen({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

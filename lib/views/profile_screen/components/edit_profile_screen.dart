@@ -8,7 +8,7 @@ import '../../../controller/profile_controller.dart';
 class EditProfileScreen extends StatelessWidget {
   final dynamic data;
 
-  const EditProfileScreen({super.key, this.data});
+  const EditProfileScreen({Key? key, this.data}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

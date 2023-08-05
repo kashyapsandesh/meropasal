@@ -3,7 +3,7 @@ import '../../controller/auth_controller.dart';
 import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import '../widget_common/exit_dialog.dart';
 import '../widget_common/bgcolor.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

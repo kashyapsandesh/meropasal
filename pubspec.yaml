@@ -15,10 +15,11 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 3.0.0+1
 
 environment:
-  sdk: ">=2.17.3 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -27,20 +28,20 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cloud_firestore: ^4.5.3
+  cloud_firestore: ^4.8.4
   cupertino_icons: ^1.0.2
-  firebase_auth: ^4.4.2
-  firebase_core: ^2.10.0
-  firebase_storage: ^11.1.1
+  firebase_auth: ^4.7.2
+  firebase_core: ^2.15.0
+  firebase_storage: ^11.2.5
   flutter:
     sdk: flutter
-  flutter_firebase_firestore: ^0.0.1
+   
   get: ^4.6.5
-  image_picker: ^0.8.7+4
-  velocity_x: null
+  image_picker: ^1.0.2
+  velocity_x: ^4.1.1
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.2
   flutter_test:
     sdk: flutter
 

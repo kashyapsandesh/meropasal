@@ -1,7 +1,7 @@
 import '../../consts/consts.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  const CartScreen({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ import 'item_details.dart';
 
 class CategoryDetails extends StatelessWidget {
   final String? title;
-  const CategoryDetails({super.key, this.title});
+  const CategoryDetails({Key? key, this.title}):super(key: key);
 
   @override
   Widget build(BuildContext context) {

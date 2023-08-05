@@ -6,7 +6,7 @@ import '../../controller/product_controller.dart';
 class ItemDetails extends StatelessWidget {
   final String? title;
   final dynamic data;
-  const ItemDetails({super.key, this.title, this.data});
+  const ItemDetails({Key? key, this.title, this.data}):super(key: key);
 
   @override
   Widget build(BuildContext context) {
