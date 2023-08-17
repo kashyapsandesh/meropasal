@@ -151,7 +151,7 @@ class ItemDetails extends StatelessWidget {
                                               horizontal: 8.0))
                                           .make()
                                           .onTap(() {
-                                        controller.changeColor(index);
+                                        controller.changeColor(index );
                                       }),
                                       Visibility(
                                           visible: index ==

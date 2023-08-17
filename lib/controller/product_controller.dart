@@ -9,7 +9,7 @@ class ProductController extends GetxController {
 // create a function to used json
   var subcat = [];
   var quantity = 0.obs;
-  var colorIndex = 0.obs;
+  RxInt colorIndex = 0.obs;
   var totalPrice = 0.obs;
   getSubCategories(title) async {
     log(title);
@@ -29,7 +29,7 @@ class ProductController extends GetxController {
   }
 
   changeColor(index) {
-    colorIndex = index;
+    colorIndex.value= index ;
   }
 
   increseQuantity(totalQuantity) {

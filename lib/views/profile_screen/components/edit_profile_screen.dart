@@ -81,7 +81,7 @@ class EditProfileScreen extends StatelessWidget {
                     child: customButton(
                       color: redColor,
                       onPress: () async {
-                        controller.isLoading(true);
+                        controller.isLoading(false);
                         // if the image is not selected
                         if (controller.profileImgPath.value.isEmpty) {
                           await controller.uploadProfileImage();
