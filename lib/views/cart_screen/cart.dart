@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emart_app/controller/cart_controller.dart';
+import 'package:emart_app/services/firestore_services.dart';
+
 import '../../consts/consts.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}):super(key: key);
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var controller=Get.put(CartController());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -13,13 +18,45 @@ class CartScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: "Shopping Cart".text.fontFamily(semibold).make(),
       ),
-      body: Padding(
+      body: StreamBuilder(
+        stream: FirestoreServices.getCart(currentUser!.uid), // Replace with your actual stream
+        
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          // print(currentUser!.uid.toString());
+          if (snapshot.hasError) {
+            return Center(
+              child: Text("Error: ${snapshot.error}"),
+            );
+          }
+          if (!snapshot.hasData) {
+            print(snapshot.data);
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }else{
+            var data=snapshot.data!.docs;
+            controller.calculate(data);
+            return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Expanded(
               child: Container(
-                color: Colors.blue,
+               
+                child: ListView.builder(
+                  itemCount: data.length,
+                  itemBuilder: (context,index){
+                    return ListTile(
+                      leading: Image.network('${data[index]['img']}'),
+                      title:Text('${data[index]['title']} x${data[index]['qty']}') ,
+                      subtitle:Text('${data[index]['tprice']}')  ,
+                      trailing: Icon(Icons.delete,color: redColor,).onTap(() {
+                        FirestoreServices.deleteDoc(data[index].id);
+                       }),
+                    );
+
+                }),
+
               ),
             ),
             Row(
@@ -30,18 +67,40 @@ class CartScreen extends StatelessWidget {
                     .fontFamily(semibold)
                     .color(darkFontGrey)
                     .make(),
-                '40'
-                    .numCurrency
-                    .text
-                    .size(18)
-                    .fontFamily(semibold)
-                    .color(darkFontGrey)
-                    .make(),
+                Obx(()=>"${controller.totalP}"
+                      .numCurrency
+                      .text
+                      .size(18)
+                      .fontFamily(semibold)
+                      .color(darkFontGrey)
+                      .make(),
+                ),
+                    60.heightBox
+
+                  
               ],
-            )
+              
+            ),  
+            SizedBox(width: context.width-60,
+                    child: customButton(
+                      color: redColor,
+                      onPress: (){},
+                      textcolor: whiteColor,title: "Proceed to shipping",
+                    ),
+                    )
+            
           ],
         ),
+      );
+
+          }
+
+    
+         
+        },
       ),
     );
   }
 }
+
+ 

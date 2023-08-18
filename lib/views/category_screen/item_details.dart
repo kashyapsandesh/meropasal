@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:emart_app/views/chat_screen/chat_screen.dart';
+
 import '../../consts/consts.dart';
 import '../../controller/product_controller.dart';
 
@@ -118,7 +120,16 @@ class ItemDetails extends StatelessWidget {
                             Icons.message_rounded,
                             color: darkFontGrey,
                           ),
-                        ),
+                        ).onTap(() {Get.to(ChatScreen(),arguments: [
+                          data['p_seller'],data['vendor_id']
+                        ]);
+                        
+                        
+                        
+                        
+                        
+                        
+                        }),
                       ],
                     )
                         .box
