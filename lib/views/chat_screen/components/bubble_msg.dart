@@ -12,7 +12,7 @@ var time = DateFormat("h:mma").format(t);
     padding: EdgeInsets.all(8),
                 margin: EdgeInsets.only(bottom: 8),
                   decoration: BoxDecoration(
-                      color: redColor,
+                      color: data['uid']==currentUser!.uid?redColor:fontGrey,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20),

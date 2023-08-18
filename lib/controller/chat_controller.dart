@@ -46,7 +46,7 @@ class ChatController extends GetxController {
           'senderName':senderName,
            }
         ).then((value) => {
-          chatDocId=value.id,
+          {chatDocId=value.id,}
         });
       }
     });
