@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../consts/consts.dart';
 
 class FirestoreServices {
+  
   static getUser(uid) {
     // get users data
     return firestore

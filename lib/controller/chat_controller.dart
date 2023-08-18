@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/controller/home_controller.dart';
 
@@ -31,6 +33,7 @@ class ChatController extends GetxController {
     }).limit(1).get().then((QuerySnapshot snapshot){
       if(snapshot.docs.isNotEmpty){
         chatDocId=snapshot.docs.single.id;
+        log(chatDocId);
       }else{
         chat.add(
           {
