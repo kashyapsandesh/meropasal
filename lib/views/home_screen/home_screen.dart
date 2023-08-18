@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        print("Entering HomeScreen build method."); // 
     var controller = Get.put(HomeController());
 
     var navbarItem = [
@@ -45,15 +46,13 @@ class HomeScreen extends StatelessWidget {
     ];
     return WillPopScope(
       onWillPop: () async {
-        showDialog(
-          context: context,
-          builder: (
-            context,
-          ) =>
-              exitDialogMode(),
-        );
-        return false;
-      },
+  await showDialog(
+    context: context,
+    builder: (context) => ExitDialogBox(),
+  );
+  return false;
+},
+
       child: Scaffold(
         body: Column(
           children: [
