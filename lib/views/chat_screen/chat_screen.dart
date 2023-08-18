@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/loading_indicator.dart';
@@ -7,11 +9,15 @@ import 'package:flutter/material.dart';
 
 import '../../controller/chat_controller.dart';
 
+
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
+    
+    
     var controller=Get.put(ChatController());
     return Scaffold(
       backgroundColor: whiteColor,
@@ -28,8 +34,11 @@ class ChatScreen extends StatelessWidget {
                   ):Expanded(child: 
               
               StreamBuilder(stream:FirestoreServices.getChatMessage(controller.chatDocId.toString()),
+              
               builder: (BuildContext context, AsyncSnapshot<QuerySnapshot>snapshot){
+                print(controller.chatDocId);
                 if(!snapshot.hasData){
+                  print(snapshot.data.toString());
                   return Center(
                     child: loadingIndicator(),
                   );
@@ -41,7 +50,8 @@ class ChatScreen extends StatelessWidget {
                   return ListView(
                     children: snapshot.data!.docs.mapIndexed((currentValue, index) {
                       var data=snapshot.data!.docs[index];
-                      return senderBubble(data);
+                      // print(data.toString());
+                      return Align(alignment: data['uid']==currentUser!.uid?Alignment.centerRight:Alignment.centerLeft,child: senderBubble(data));
                     }).toList(),
                   );
                 }
