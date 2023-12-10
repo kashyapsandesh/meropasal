@@ -89,7 +89,7 @@ class EditProfileScreen extends StatelessWidget {
                           controller.profileImgLink = data['imageUrl'];
                         }
                         // if old pass matches database
-                        //abc
+                        //abccded
                         if (data['password'] ==
                             controller.oldpassController.text) {
                           await controller.changeAuthPassword(
