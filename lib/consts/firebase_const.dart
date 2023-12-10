@@ -7,6 +7,7 @@ FirebaseAuth auth = FirebaseAuth.instance;
 FirebaseFirestore firestore = FirebaseFirestore.instance;
 User? currentUser = auth.currentUser;
 
+
 // collections
 const usersCollection = "users";
 const productsCollection = "products";

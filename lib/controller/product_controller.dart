@@ -9,7 +9,7 @@ import '../models/category_model.dart';
 class ProductController extends GetxController {
 // create a function to used json
   var subcat = [];
-  RxBool isFav=false.obs;
+  RxBool isFav = false.obs;
   var quantity = 0.obs;
   RxInt colorIndex = 0.obs;
   var totalPrice = 0.obs;
@@ -31,7 +31,7 @@ class ProductController extends GetxController {
   }
 
   changeColor(index) {
-    colorIndex.value= index ;
+    colorIndex.value = index;
   }
 
   increseQuantity(totalQuantity) {
@@ -70,30 +70,27 @@ class ProductController extends GetxController {
     colorIndex.value = 0;
   }
 
+  addToWishlist(docId, context) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayUnion([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFav(true);
+    VxToast.show(context, msg: "Added From wishlist");
+  }
 
+  removeFromWishlist(docId, context) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayRemove([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFav(false);
+    VxToast.show(context, msg: "Remove From wishlist");
+  }
 
-
-  addToWishlist (docId,context) async {
-await firestore.collection (productsCollection).doc (docId).set({
-'p_wishlist': FieldValue.arrayUnion ([currentUser!.uid])
-}, SetOptions (merge: true));
-isFav(true);
-VxToast.show(context, msg: "Added From wishlist");
-}
-
-  removeFromWishlist (docId,context) async {
-await firestore.collection (productsCollection).doc (docId).set({
-'p_wishlist': FieldValue.arrayRemove ([currentUser!.uid])
-}, SetOptions (merge: true));
-isFav(false);
-VxToast.show(context, msg: "Remove From wishlist");
-}
-
-Future<bool> checkIfFav(data) async {
-if (data['p_wishlist']. contains (currentUser!.uid)) {
-return isFav(true);
-} else {
-return isFav(false);
-}}
-
+  Future<bool> checkIfFav(data) async {
+    if (data['p_wishlist'].contains(currentUser!.uid)) {
+      return isFav(true);
+    } else {
+      return isFav(false);
+    }
+  }
 }
