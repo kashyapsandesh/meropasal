@@ -42,7 +42,12 @@ class ChatScreen extends StatelessWidget {
                   return Center(
                     child: loadingIndicator(),
                   );
-                }else{
+                }else if (!snapshot.data!.docs.isEmpty) {
+                  return Center(
+                    child: "Send a Message".text.make(),
+                  );
+                } 
+                else{
                   return ListView(
                     children: snapshot.data!.docs.mapIndexed((currentValue, index) {
                       var data=snapshot.data!.docs[index];

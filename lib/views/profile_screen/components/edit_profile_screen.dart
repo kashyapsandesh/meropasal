@@ -8,7 +8,7 @@ import '../../../controller/profile_controller.dart';
 class EditProfileScreen extends StatelessWidget {
   final dynamic data;
 
-  const EditProfileScreen({Key? key, this.data}):super(key: key);
+  const EditProfileScreen({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +81,9 @@ class EditProfileScreen extends StatelessWidget {
                     child: customButton(
                       color: redColor,
                       onPress: () async {
-                        controller.isLoading(false);
+                        controller.isLoading(true);
                         // if the image is not selected
-                        if (controller.profileImgPath.value.isEmpty) {
+                        if (controller.profileImgPath.value.isNotEmpty) {
                           await controller.uploadProfileImage();
                         } else {
                           controller.profileImgLink = data['imageUrl'];
@@ -105,8 +105,7 @@ class EditProfileScreen extends StatelessWidget {
                         } else {
                           VxToast.show(context, msg: "Wrong old password ");
                         }
-                          controller.isLoading(false);
-
+                        controller.isLoading(false);
                       },
                       textcolor: whiteColor,
                       title: "Save",

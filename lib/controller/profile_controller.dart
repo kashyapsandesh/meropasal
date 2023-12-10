@@ -34,9 +34,10 @@ class ProfileController extends GetxController {
   uploadProfileImage() async {
     var filename = p.basename(profileImgPath.value);
     var destination = 'images/${currentUser!.uid}/$filename';
-    Reference ref = FirebaseStorage.instance.ref().child(destination);
+    Reference ref =  FirebaseStorage.instance.ref().child(destination);
     await ref.putFile(File(profileImgPath.value));
     profileImgLink = await ref.getDownloadURL();
+    
   }
 
   // update profile
@@ -55,7 +56,6 @@ class ProfileController extends GetxController {
     final cred = EmailAuthProvider.credential(email: email, password: password);
     await currentUser!.reauthenticateWithCredential(cred).then((value) {
       currentUser!.updatePassword(newPassword);
-    }).catchError((error) {
-    });
+    }).catchError((error) {});
   }
 }
