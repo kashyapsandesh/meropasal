@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../consts/consts.dart';
@@ -50,6 +48,32 @@ class FirestoreServices {
         .doc(docId)
         .collection(messagesCollection)
         .orderBy("created_on", descending: false)
+        .snapshots();
+  }
+
+  //get all orders
+  static Stream<QuerySnapshot> getallOrder() {
+    print(firestore
+        .collection(ordersCollection)
+        .where('order_by_email', isEqualTo: currentUser!.email)
+        .snapshots());
+    return firestore
+        .collection(ordersCollection)
+        .where('order_by', isEqualTo: currentUser!.uid)
+        .snapshots();
+  }
+
+  getallWishLists() {
+    return firestore
+        .collection(productsCollection)
+        .where('p_wishlist', arrayContains: currentUser!.uid)
+        .snapshots();
+  }
+
+  getMessages() {
+    return firestore
+        .collection(chatsCollection)
+        .where('fromId', isEqualTo: currentUser!.uid)
         .snapshots();
   }
 }

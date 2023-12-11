@@ -8,7 +8,7 @@ import '../../controller/product_controller.dart';
 class ItemDetails extends StatelessWidget {
   final String? title;
   final dynamic data;
-  const ItemDetails({Key? key, this.title, this.data}):super(key: key);
+  const ItemDetails({Key? key, this.title, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +35,23 @@ class ItemDetails extends StatelessWidget {
           title: title?.text.color(darkFontGrey).fontFamily(bold).make(),
           actions: [
             IconButton(
-                onPressed: () {}, icon: const Icon(Icons.share, color: darkFontGrey)),
-            Obx(()=>
-               IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.share, color: darkFontGrey)),
+            Obx(
+              () => IconButton(
                   onPressed: () {
                     if (controller.isFav.value) {
-            controller.removeFromWishlist (data.id,context);
-            controller.isFav(false);
-            }else{
-            controller.addToWishlist(data.id,context);
-            controller.isFav(true);
-            }
+                      controller.removeFromWishlist(data.id, context);
+                      controller.isFav(false);
+                    } else {
+                      controller.addToWishlist(data.id, context);
+                      controller.isFav(true);
+                    }
                   },
-                  icon: Icon(Icons.favorite_border_outlined, color: controller.isFav.value? redColor: darkFontGrey,)),
+                  icon: Icon(
+                    Icons.favorite_border_outlined,
+                    color: controller.isFav.value ? redColor : darkFontGrey,
+                  )),
             ),
           ],
         ),
@@ -130,15 +134,9 @@ class ItemDetails extends StatelessWidget {
                             Icons.message_rounded,
                             color: darkFontGrey,
                           ),
-                        ).onTap(() {Get.to(ChatScreen(),arguments: [
-                          data['p_seller'],data['vendor_id']
-                        ]);
-                        
-                        
-                        
-                        
-                        
-                        
+                        ).onTap(() {
+                          Get.to(ChatScreen(),
+                              arguments: [data['p_seller'], data['vendor_id']]);
                         }),
                       ],
                     )
@@ -172,7 +170,7 @@ class ItemDetails extends StatelessWidget {
                                               horizontal: 8.0))
                                           .make()
                                           .onTap(() {
-                                        controller.changeColor(index );
+                                        controller.changeColor(index);
                                       }),
                                       Visibility(
                                           visible: index ==
@@ -306,6 +304,7 @@ class ItemDetails extends StatelessWidget {
                   controller.addToCart(
                       color: data['p_colors'][controller.colorIndex.value],
                       context: context,
+                      vendorId: data['vendor_id'],
                       img: data['p_imgs'][0],
                       qty: controller.quantity.value,
                       sellername: data['p_seller'],

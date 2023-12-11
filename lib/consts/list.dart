@@ -37,3 +37,5 @@ const categoryImages = [
 const itemDetailButtonsList = [video, reviews, privacyPolicy, supportpolicy];
 const profileButtonsList = [order, wishlist, messages];
 const profileButtonsIcon = [icOrder, icWholeSale, icMessages];
+const paymentMethodsImage = [imgPaypal, imgStripe, imgCod];
+const paymentMethods = [paypal, stripe, cod];

@@ -57,3 +57,8 @@ const video = "Video",
     productyoumaylike = "Product you may like";
 // profile strings
 const wishlist = "My Wishlist", order = "My Order", messages = "Messages";
+
+//payment methods string
+const paypal = "paypal";
+const stripe = 'Stripe';
+const cod = 'cash on delivery';

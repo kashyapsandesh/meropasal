@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/loading_indicator.dart';
 import 'package:emart_app/services/firestore_services.dart';
 import 'package:emart_app/views/chat_screen/components/bubble_msg.dart';
-import 'package:flutter/material.dart';
 
 import '../../controller/chat_controller.dart';
 

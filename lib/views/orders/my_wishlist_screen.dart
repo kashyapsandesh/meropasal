@@ -5,8 +5,8 @@ import 'package:emart_app/services/firestore_services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class MessageScreen extends StatelessWidget {
-  const MessageScreen({Key? key}) : super(key: key);
+class WishListScreen extends StatelessWidget {
+  const WishListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +14,17 @@ class MessageScreen extends StatelessWidget {
       backgroundColor: whiteColor,
       appBar: AppBar(
         title:
-            "My Messages".text.fontFamily(semibold).color(Colors.black).make(),
+            "My Wishlist".text.fontFamily(semibold).color(Colors.black).make(),
       ),
       body: StreamBuilder(
-          stream: FirestoreServices().getMessages(),
+          stream: FirestoreServices().getallWishLists(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) {
               return loadingIndicator();
             } else if (snapshot.data!.docs.isEmpty) {
               return Center(
-                child: Text("No Messages Yet"),
+                child: Text("No Orders Yet"),
               );
             } else {
               return Container();

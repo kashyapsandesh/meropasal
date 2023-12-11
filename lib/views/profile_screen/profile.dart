@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emart_app/views/chat_screen/messaging_screen.dart';
+import 'package:emart_app/views/orders/my_wishlist_screen.dart';
+import 'package:emart_app/views/orders/orders_screen.dart';
 
 import '../../consts/consts.dart';
 import '../../controller/auth_controller.dart';
@@ -10,7 +13,7 @@ import 'components/details_card.dart';
 import 'components/edit_profile_screen.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}):super(key: key);
+  const Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class Profile extends StatelessWidget {
                     color: whiteColor,
                   ).onTap(() {
                     controller.nameController.text = data['name'];
-       
+
                     Get.to(() => EditProfileScreen(
                           data: data,
                         ));
@@ -113,6 +116,21 @@ class Profile extends StatelessWidget {
                         itemCount: profileButtonsList.length,
                         itemBuilder: (BuildContext context, int index) {
                           return ListTile(
+                            onTap: () {
+                              switch (index) {
+                                case 0:
+                                  Get.to(() => OrderScreen());
+
+                                  break;
+                                case 1:
+                                  Get.to(() => WishListScreen());
+                                  break;
+                                case 2:
+                                  Get.to(() => MessageScreen());
+                                  break;
+                                default:
+                              }
+                            },
                             leading: Image.asset(
                               profileButtonsIcon[index],
                               width: 22,
