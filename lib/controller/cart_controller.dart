@@ -45,6 +45,7 @@ class CartController extends GetxController {
       'shipping_method': 'Home Delivery',
       'payment_method': orderPaymentMethod,
       'order_placed': true,
+      'order_date': DateTime.now(),
       'order_confirmed': false,
       'order_delivered': false,
       'order_code': '64654646',

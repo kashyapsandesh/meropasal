@@ -10,6 +10,7 @@ Widget orderStatus({icon, color, title, showDone}) {
       height: 100,
       width: 120,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           title.toString().text.color(fontGrey).make(),
           showDone
