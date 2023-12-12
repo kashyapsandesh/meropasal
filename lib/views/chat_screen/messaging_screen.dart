@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/loading_indicator.dart';
 import 'package:emart_app/services/firestore_services.dart';
+import 'package:emart_app/views/chat_screen/chat_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,42 @@ class MessageScreen extends StatelessWidget {
                 child: Text("No Messages Yet"),
               );
             } else {
-              return Container();
+              var data = snapshot.data!.docs;
+              return ListView.builder(
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ListTile(
+                        onTap: () {
+                          Get.to(() => ChatScreen(), arguments: [
+                            data[index]['friendName'],
+                            data[index]['toId']
+                          ]);
+                        },
+                        leading: CircleAvatar(
+                          backgroundColor: redColor,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                        ),
+                        title: Text('${data[index]['friendName']}'),
+                        subtitle: Text('${data[index]['last_msg']}'),
+                        // trailing: Icon(
+                        //   Icons.favorite,
+                        //   color: redColor,
+                        // ).onTap(() async {
+                        //   await firestore
+                        //       .collection(productsCollection)
+                        //       .doc(data[index].id)
+                        //       .set({
+                        //     'p_wishlist':
+                        //         FieldValue.arrayRemove([currentUser?.uid ?? ''])
+                        //   }, SetOptions(merge: true));
+                        // }),
+                      ),
+                    );
+                  });
             }
           }),
     );

@@ -8,7 +8,8 @@ import '../../controller/product_controller.dart';
 class ItemDetails extends StatelessWidget {
   final String? title;
   final dynamic data;
-  const ItemDetails({Key? key, this.title, this.data}) : super(key: key);
+  const ItemDetails({Key? key, required this.title, required this.data})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -301,16 +302,20 @@ class ItemDetails extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.red),
                 onPressed: () {
-                  controller.addToCart(
-                      color: data['p_colors'][controller.colorIndex.value],
-                      context: context,
-                      vendorId: data['vendor_id'],
-                      img: data['p_imgs'][0],
-                      qty: controller.quantity.value,
-                      sellername: data['p_seller'],
-                      title: data['p_name'],
-                      tprice: controller.totalPrice.value);
-                  VxToast.show(context, msg: 'Added to cart');
+                  if (controller.quantity.value > 0) {
+                    controller.addToCart(
+                        color: data['p_colors'][controller.colorIndex.value],
+                        context: context,
+                        vendorId: data['vendor_id'],
+                        img: data['p_imgs'][0],
+                        qty: controller.quantity.value,
+                        sellername: data['p_seller'],
+                        title: data['p_name'],
+                        tprice: controller.totalPrice.value);
+                    VxToast.show(context, msg: 'Added to cart');
+                  } else {
+                    VxToast.show(context, msg: "Item cart must not be 0");
+                  }
                 },
                 child: "Add to cart".text.fontFamily(semibold).make(),
               ),

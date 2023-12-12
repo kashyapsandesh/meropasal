@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/loading_indicator.dart';
@@ -33,8 +32,11 @@ class ChatScreen extends StatelessWidget {
                     )
                   : Expanded(
                       child: StreamBuilder(
+                          key: UniqueKey(),
                           stream: FirestoreServices.getChatMessage(
-                              controller.chatDocId.toString()),
+                            controller.chatDocId,
+                          ),
+                          
                           builder: (BuildContext context,
                               AsyncSnapshot<QuerySnapshot> snapshot) {
                             // print(controller.chatDocId);
@@ -52,12 +54,13 @@ class ChatScreen extends StatelessWidget {
                                 children: snapshot.data!.docs
                                     .mapIndexed((currentValue, index) {
                                   var data = snapshot.data!.docs[index];
-                                  // print(data.toString());
+                                  print('Data from Firestore: $data');
                                   return Align(
-                                      alignment: data['uid'] == currentUser!.uid
-                                          ? Alignment.centerRight
-                                          : Alignment.centerLeft,
-                                      child: senderBubble(data));
+                                    alignment: data['uid'] == currentUser!.uid
+                                        ? Alignment.centerRight
+                                        : Alignment.centerLeft,
+                                    child: senderBubble(data),
+                                  );
                                 }).toList(),
                               );
                             }
@@ -107,6 +110,7 @@ class ChatScreen extends StatelessWidget {
                     onPressed: () {
                       controller.sendMsg(controller.messageController.text);
                       controller.messageController.clear();
+                      controller.update();
                     },
                     icon: Icon(
                       Icons.send,

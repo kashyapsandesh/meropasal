@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emart_app/consts/loading_indicator.dart';
 import 'package:emart_app/views/chat_screen/messaging_screen.dart';
-import 'package:emart_app/views/orders/my_wishlist_screen.dart';
+import 'package:emart_app/views/wishlist_screen/my_wishlist_screen.dart';
 import 'package:emart_app/views/orders/orders_screen.dart';
 
 import '../../consts/consts.dart';
@@ -87,25 +88,51 @@ class Profile extends StatelessWidget {
                   ],
                 ),
                 10.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    detailsCard(
-                        count: "${data['cart_count']}",
-                        title: "in your cart",
-                        width: context.screenWidth / 3.2),
-                    3.widthBox,
-                    detailsCard(
-                        count: "${data['wishlist_count']}",
-                        title: "your whistlist",
-                        width: context.screenWidth / 3.2),
-                    3.widthBox,
-                    detailsCard(
-                        count: "${data['order_count']}",
-                        title: "your order",
-                        width: context.screenWidth / 3.2)
-                  ],
-                ),
+                FutureBuilder(
+                    future: FirestoreServices.getCounts(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (!snapshot.hasData) {
+                        return Center(child: loadingIndicator());
+                      } else {
+                        var countData = snapshot.data;
+// print (snapshot.data); Avoid *print calls in production code.
+                        return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              detailsCard(
+                                  count: countData[0].toString(),
+                                  title: "in your cart",
+                                  width: context.screenWidth / 3.3),
+                              detailsCard(
+                                  count: countData[1].toString(),
+                                  title: "in your wishlist",
+                                  width: context.screenWidth / 3.3),
+                              detailsCard(
+                                  count: countData[2].toString(),
+                                  title: "your orders",
+                                  width: context.screenWidth / 3.3),
+                            ]); // Row
+                      }
+                    }), // FutureBuilder
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     detailsCard(
+                //         count: "${data['cart_count']}",
+                //         title: "in your cart",
+                //         width: context.screenWidth / 3.2),
+                //     3.widthBox,
+                //     detailsCard(
+                //         count: "${data['wishlist_count']}",
+                //         title: "your whistlist",
+                //         width: context.screenWidth / 3.2),
+                //     3.widthBox,
+                //     detailsCard(
+                //         count: "${data['order_count']}",
+                //         title: "your order",
+                //         width: context.screenWidth / 3.2)
+                //   ],
+                // ),
                 // button sections
 
                 ListView.separated(

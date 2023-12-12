@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emart_app/consts/loading_indicator.dart';
+import 'package:emart_app/services/firestore_services.dart';
+import 'package:emart_app/views/category_screen/item_details.dart';
+
 import '../consts/consts.dart';
 import 'widget_common/home_button.dart';
 
 class MainHomeScreen extends StatelessWidget {
-  const MainHomeScreen({Key? key}):super(key: key);
+  const MainHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -197,32 +202,54 @@ class MainHomeScreen extends StatelessWidget {
 
                   // All Products
                   20.heightBox,
-                  GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 6,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 8,
-                        mainAxisExtent: 300,
-                        crossAxisSpacing: 8),
-                    itemBuilder: ((context, index) {
-                      return Column(
-                        children: [
-                          Image.asset(imgP5, width: 200, fit: BoxFit.fill),
-                          5.heightBox,
-                          "Laptop 4GB/6GB".text.fontFamily(semibold).make(),
-                          5.heightBox,
-                          "\$56000"
-                              .text
-                              .size(18)
-                              .fontFamily(bold)
-                              .color(redColor)
-                              .make(),
-                        ],
-                      ).box.rounded.white.make();
-                    }),
-                  )
+                  StreamBuilder(
+                      stream: FirestoreServices.getAllProducts(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (!snapshot.hasData) {
+                          return loadingIndicator();
+                        } else {
+                          var allProductData = snapshot.data!.docs;
+                          return GridView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: allProductData.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 8,
+                                    mainAxisExtent: 300,
+                                    crossAxisSpacing: 8),
+                            itemBuilder: ((context, index) {
+                              return Column(
+                                children: [
+                                  Image.network(
+                                      allProductData[index]['p_imgs'][0],
+                                      width: 250,
+                                      height: 200,
+                                      fit: BoxFit.fill),
+                                  5.heightBox,
+                                  "${allProductData[index]['p_name']}"
+                                      .text
+                                      .fontFamily(semibold)
+                                      .make(),
+                                  5.heightBox,
+                                  "\$56000"
+                                      .text
+                                      .size(18)
+                                      .fontFamily(bold)
+                                      .color(redColor)
+                                      .make(),
+                                ],
+                              ).box.rounded.white.make().onTap(() {
+                                Get.to(() => ItemDetails(
+                                    title: '${allProductData[index]['p_name']}',
+                                    data: allProductData[index]));
+                              });
+                            }),
+                          );
+                        }
+                      })
                 ],
               ),
             ),
