@@ -3,7 +3,7 @@ import '../../controller/auth_controller.dart';
 import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}):super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {},
-                        child: forgetPassword.text.make(),
+                        child: "Forget password".text.color(redColor).make(),
                       ),
                     ),
                     controller.isLoading.value
@@ -50,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                           )
                         : customButton(
                             title: login,
+                            color: redColor,
                             onPress: () async {
                               controller.isLoading(true);
                               await controller
@@ -67,6 +68,7 @@ class LoginScreen extends StatelessWidget {
                     createNewAccount.text.color(darkFontGrey).make(),
                     5.heightBox,
                     customButton(
+                        color: redColor,
                         title: signup,
                         onPress: () {
                           Get.to(() => const SignupScreen());
