@@ -68,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                     createNewAccount.text.color(darkFontGrey).make(),
                     5.heightBox,
                     customButton(
-                        color: redColor,
+                        color: Colors.red,
                         title: signup,
                         onPress: () {
                           Get.to(() => const SignupScreen());
