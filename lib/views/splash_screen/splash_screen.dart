@@ -4,7 +4,7 @@ import '../../consts/consts.dart';
 import '../home_screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}):super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   changeScreen() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 10), () {
       // Get.to(() => LoginScreen());
       auth.authStateChanges().listen((User? user) {
         if (user == null && mounted) {

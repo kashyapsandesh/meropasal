@@ -6,7 +6,7 @@ Widget customButton({String? title, onPress, color, textcolor}) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(),
-      primary: color,
+      // primary: color,
       padding: EdgeInsets.all(15),
     ),
     onPressed: onPress,

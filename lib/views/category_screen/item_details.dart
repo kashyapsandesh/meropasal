@@ -300,7 +300,7 @@ class ItemDetails extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.red),
+                style: ElevatedButton.styleFrom(foregroundColor: Colors.red),
                 onPressed: () {
                   if (controller.quantity.value > 0) {
                     controller.addToCart(

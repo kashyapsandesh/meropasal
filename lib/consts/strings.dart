@@ -1,6 +1,6 @@
-const appname = "eMart";
+const appname = "PU MART";
 const appversion = "Version 1.0.0";
-const credits = "@Sansha Technologies";
+const credits = "@Pokhara University Students";
 const email = 'Email';
 const emailHint = 'abcdef@gmail.com';
 const password = 'Password';
